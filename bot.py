@@ -8,5 +8,3 @@ token = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='$')
 
-
-
