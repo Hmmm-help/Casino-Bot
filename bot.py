@@ -9,3 +9,5 @@ bot = commands.Bot(command_prefix='$')
 async def Coin_Flip(ctx):
     import random
     await (random.choice(["HEADS", "Tails"]))
+
+bot.run(token)
