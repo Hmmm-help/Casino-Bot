@@ -13,13 +13,17 @@ losses = 0
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
-    await ctx.send(choice)
     if choice == "HEADS":
+        global wins
         wins += 1
     else:
-        losses +- 1
+        global losses
+        losses += 1
+    await ctx.send(choice)
 
 @bot.command(name="counter")
 async def counter(ctx):
-    await ctx.send(f"Your score is now {wins}:{losses}.")
+    global wins, losses
+    await ctx.send(f"Your win:loss ratio is {wins}:{losses}.")
+    
 bot.run(token)
