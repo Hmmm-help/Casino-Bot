@@ -3,7 +3,12 @@ coins = money // 10
  
 import discord 
 import os
- 
+from discord.ext import commands
+
+token = os.getenv('DISCORD_TOKEN')
+
+bot = commands.Bot(command_prefix='$') 
+
 @bot.command(name='coins')
 async def conversion(ctx):
     await ctx.send(money//10)
