@@ -16,3 +16,5 @@ async def conversion(ctx):
 @bot.command(name='money')
 async def money(ctx):
     await ctx.send(money)
+ 
+bot.run(token)
