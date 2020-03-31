@@ -10,6 +10,15 @@ async def Coin_Flip(ctx):
     import random
     await ctx.send(random.choice(["HEADS", "TAILS"]))
 
+money = 100
+@bot.command(name='coins')
+async def conversion(ctx):
+    await ctx.send(money//10)
+ 
+@bot.command(name='money')
+async def money(ctx):
+    await ctx.send(money)
+    
 @bot.command(name= "Emoji-Slot")
 async def emjoi_slot(ctx):
     import random
@@ -21,5 +30,6 @@ async def emjoi_slot(ctx):
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
     if outcome == True:
         await ctx.send("Look at you! Don't be shy- play some more!")
+        
         
 bot.run(token)
