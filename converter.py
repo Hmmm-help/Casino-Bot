@@ -1,5 +1,3 @@
-money = 100
-coins = money // 10 
  
 import discord 
 import os
@@ -8,6 +6,8 @@ from discord.ext import commands
 token = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='$') 
+
+money = 100
 
 @bot.command(name='coins')
 async def conversion(ctx):
