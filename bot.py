@@ -15,7 +15,7 @@ async def emjoi_slot(ctx):
     import random
     options = ["🤡","😷","👽"]
     slot = [random.choice(options),random.choice(options),random.choice(options)]
-    print(slot)
+    (slot)
     outcome = all(x == slot[0] for x in slot)
     if outcome == False:
         await "Sorry son, this ain't it- ya lost some cash."
