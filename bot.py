@@ -5,6 +5,10 @@ token = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='$')
 
+@bot.listen()
+async def on_ready():
+    print("Anyone up for a game?")
+    
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
     import random
