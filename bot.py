@@ -1,14 +1,23 @@
 import os
+import random
 from discord.ext import commands
 
 token = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='$')
 
+wins = 0
+losses = 0
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
-    import random
-    await ctx.send(random.choice(["HEADS", "TAILS"]))
+    choice = random.choice(["HEADS", "TAILS"])
+    await ctx.send(choice)
+    if choice == "HEADS":
+        global wins
+        wins += 1
+    else:
+        global losses
+        losses += 1
 
 money = 100
 @bot.command(name='coins')
@@ -27,10 +36,17 @@ async def emjoi_slot(ctx):
     await ctx.send(slot)
     outcome = all(x == slot[0] for x in slot)
     if outcome == False:
+        global losses
+        losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
     if outcome == True:
+        global wins
+        wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
 
-        
-        
+@bot.command(name = "Win:Loss")
+async def counter(ctx):
+    await ctx.send(f"Your ratio is now {wins}:{losses}.")
+    
+           
 bot.run(token)
