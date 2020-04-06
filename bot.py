@@ -4,9 +4,13 @@ from discord.ext import commands
 token = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='$')
-client = discord.client()
 
-all_balances = {i : 100 for i in client.users}
+ all_balances = {}
+
+@bot.event
+async on_member_join(member):
+     x = {f"{member}": 100}
+     all_balances.update(x)
 
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
@@ -30,12 +34,12 @@ async def emjoi_slot(ctx):
     await ctx.send(slot)
     outcome = all(x == slot[0] for x in slot)
     if outcome == False:
-        await ctx.send(f"New Balance is {all_balances[client.user()] - 10}")
+        await ctx.send(f"New Balance for {client.user.name} is {all_balances[client.user.name] - 10}")
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-        all_balances[user.id] = all_balances[client.users] - 10
+        all_balances[user.name] = all_balances[user.name] - 10
     if outcome == True:
-        await ctx.send(f"New Balance for {client.user} is {all_balances[client.user] + 10}")
+        await ctx.send(f"New Balance for {client.user.name} is {all_balances[client.user.name] + 10}")
         await ctx.send("Look at you! Don't be shy- play some more!")
-        all_balances[user.id] = all_balances[user.id] + 10
+        all_balances[client.user.name] = all_balances[client.user.name] + 10
         
 bot.run(token)
