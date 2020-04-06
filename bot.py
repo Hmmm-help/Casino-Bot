@@ -11,7 +11,8 @@ bot = commands.Bot(command_prefix='$')
 async on_member_join(member):
      x = {f"{member}": 100}
      all_balances.update(x)
-
+     print(f"{member} has joined the server.")
+     
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
     import random
