@@ -8,6 +8,11 @@ bot = commands.Bot(command_prefix='$')
 
 wins = 0
 losses = 0
+
+@bot.listen()
+async def on_ready():
+    print("Anyone up for a game?")
+    
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
