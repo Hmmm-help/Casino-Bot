@@ -9,8 +9,6 @@ bot = commands.Bot(command_prefix='$')
 wins = 0
 losses = 0
 
-all_balances = {i : 100 for i in discord.Client.users}
-
 @bot.listen()
 async def on_ready():
     print("Anyone up for a game?")
@@ -36,11 +34,9 @@ async def emjoi_slot(ctx):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-        await ctx.send(all_balances)
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
-        await ctx.send(all_balances)
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
@@ -50,10 +46,8 @@ async def counter(ctx):
 async def GuessingGame(ctx,choice):
     number = random.randint(1,10)
     if choice == number:
-        print(number)
         await ctx.send("Hey goodjob!")
     elif choice != number:
-        print(number)
-        await ctx.send("Sucks to suck")
+        await ctx.send(f"Sucks to suck, the number was {number}")
 
 bot.run(token)
