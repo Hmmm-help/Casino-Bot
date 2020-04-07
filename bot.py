@@ -10,10 +10,6 @@ wins = 0
 losses = 0
 
 all_balances = {i : 100 for i in discord.Client.users}
-
-@bot.listen()
-async def on_ready():
-    print("Anyone up for a game?")
     
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
