@@ -22,15 +22,6 @@ async def Coin_Flip(ctx):
         wins += 1
     else:
         losses += 1
-
-money = 100
-@bot.command(name='coins')
-async def conversion(ctx):
-    await ctx.send(money//10)
- 
-@bot.command(name='money')
-async def money(ctx):
-    await ctx.send(money)
     
 @bot.command(name= "Emoji-Slot")
 async def emjoi_slot(ctx):
