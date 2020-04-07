@@ -41,6 +41,16 @@ async def emjoi_slot(ctx):
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
     await ctx.send(f"Your ratio is now {wins}:{losses}.")
-
+    
+@bot.command(name = "guessing_game")
+async def GuessingGame(ctx):
+    import random
+    number = random.randint(1,10)
+    if choice == number:
+        print(number)
+        return "Hey goodjob!"
+    elif choice != number:
+        print(number)
+        return "Sucks to suck"
 
 bot.run(token)
