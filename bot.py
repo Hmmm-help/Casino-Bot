@@ -18,10 +18,9 @@ async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
     await ctx.send(choice)
     if choice == "HEADS":
-        global wins
+        global wins, losses
         wins += 1
     else:
-        global losses
         losses += 1
 
 money = 100
@@ -41,17 +40,16 @@ async def emjoi_slot(ctx):
     await ctx.send(slot)
     outcome = all(x == slot[0] for x in slot)
     if outcome == False:
-        global losses
+        global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
     if outcome == True:
-        global wins
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
     await ctx.send(f"Your ratio is now {wins}:{losses}.")
-    
-           
+
+
 bot.run(token)
