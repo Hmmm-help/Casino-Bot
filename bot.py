@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='$')
 wins = 0
 losses = 0
 
-all_balances = {i : 100 for i in users}
+all_balances = {i : 100 for i in discord.Client.users}
 
 @bot.listen()
 async def on_ready():
