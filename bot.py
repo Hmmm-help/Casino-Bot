@@ -40,8 +40,8 @@ async def counter(ctx):
     
 @bot.command(name = "guessing_game")
 async def GuessingGame(ctx,choice):
-    str(number) = random.randint(1,10)
-    if int(choice) == int(number):
+    (number) = random.randint(1,10)
+    if int(choice) == number:
         await ctx.send("Hey goodjob!")
     else:
         await ctx.send(f"Sucks to suck, the number was {number}")
