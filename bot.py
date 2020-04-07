@@ -9,6 +9,8 @@ bot = commands.Bot(command_prefix='$')
 wins = 0
 losses = 0
 
+all_balances = {i : 100 for i in Client.users}
+
 @bot.listen()
 async def on_ready():
     print("Anyone up for a game?")
@@ -43,9 +45,11 @@ async def emjoi_slot(ctx):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
+        await ctx.send(all_balances)
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
+        await ctx.send(all_balances)
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
