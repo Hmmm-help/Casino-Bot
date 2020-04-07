@@ -43,7 +43,7 @@ async def counter(ctx):
     await ctx.send(f"Your ratio is now {wins}:{losses}.")
     
 @bot.command(name = "guessing_game")
-async def GuessingGame(ctx,number):
+async def GuessingGame(ctx,choice):
     number = random.randint(1,10)
     if choice == number:
         print(number)
