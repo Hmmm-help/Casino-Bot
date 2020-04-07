@@ -47,7 +47,7 @@ async def GuessingGame(ctx,choice):
     number = random.randint(1,10)
     if choice == number:
         await ctx.send("Hey goodjob!")
-    if choice != number:
+    else:
         await ctx.send(f"Sucks to suck, the number was {number}")
 
 bot.run(token)
