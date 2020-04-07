@@ -44,7 +44,6 @@ async def counter(ctx):
     
 @bot.command(name = "guessing_game")
 async def GuessingGame(ctx,number):
-    import random
     number = random.randint(1,10)
     if choice == number:
         print(number)
