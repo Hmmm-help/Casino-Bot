@@ -8,7 +8,8 @@ bot = commands.Bot(command_prefix='$')
 
 wins = 0
 losses = 0
-    
+all_balances = {i:100 for i in discord.Client.users}   
+
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
@@ -30,6 +31,7 @@ async def emjoi_slot(ctx):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
+        
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
