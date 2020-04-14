@@ -31,7 +31,6 @@ async def emjoi_slot(ctx):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-        
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
