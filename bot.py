@@ -14,6 +14,7 @@ async def on_ready():
     all_bal = {i:100 for i in bal}
 
 @bot.command(name= "All-Bal")
+async def All_Balances(ctx):
     await ctx.send(all_bal)
 
 @bot.command(name= "Coin-Flip") 
