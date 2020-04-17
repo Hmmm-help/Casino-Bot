@@ -13,6 +13,9 @@ async def on_ready():
     bal = list(discord.Member.guild.Members)
     all_bal = {i:100 for i in bal}
 
+@bot.command(name= "All-Bal")
+    await ctx.send(all_bal)
+
 @bot.command(name= "Coin-Flip") 
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
