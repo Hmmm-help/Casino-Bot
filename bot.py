@@ -34,13 +34,10 @@ async def emjoi_slot(ctx, user: discord.Member):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-        await ctx.send(f"New Balance for {Member.name} is {all_balances[Member.name] - 10}")
-        all_balances[Member.name] = all_balances[Member.name] - 10
+        await all_bal
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
-        await ctx.send(f"New Balance for {Member.name} is {all_balances[Member.name] + 10}")
-        all_balances[Member.name] = all_balances[Member.name] + 10
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
