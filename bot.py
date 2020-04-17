@@ -12,7 +12,7 @@ losses = 0
 async def on_member_join(member):  
     bal = list(member.guild.members)
     all_bal = {i:100 for i in bal}
-    
+
 @bot.command(name= "Coin-Flip") 
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
@@ -24,7 +24,7 @@ async def Coin_Flip(ctx):
         losses += 1
     
 @bot.command(name= "Emoji-Slot")
-async def emjoi_slot(ctx):
+async def emjoi_slot(ctx, user: discord.Member):
     import random
     options = ["🤡","😷","👽"]
     slot = [random.choice(options),random.choice(options),random.choice(options)]
@@ -34,9 +34,13 @@ async def emjoi_slot(ctx):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
+        await ctx.send(f"New Balance for {user.name} is {all_balances[user.name] - 10}")
+        all_balances[user.name] = all_balances[user.name] - 10
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
+        await ctx.send(f"New Balance for {user.name} is {all_balances[user.name] + 10}")
+        all_balances[user.name] = all_balances[user.name] + 10
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
