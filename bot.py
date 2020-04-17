@@ -12,7 +12,7 @@ losses = 0
 
 @bot.command(name= "All-Bal")
 async def All_Balances(ctx):
-    bal = list(discord.member.guild.members)
+    bal = list(1,2,3,4,5)
     all_bal = {i:100 for i in bal}
     await ctx.send(all_bal)
 
