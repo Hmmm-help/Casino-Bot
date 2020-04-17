@@ -8,10 +8,9 @@ bot = commands.Bot(command_prefix='$')
 
 wins = 0
 losses = 0  
-@bot.event
-async def on_member_join(member):  
-    bal = list(member.guild.members)
-    all_bal = {i:100 for i in bal}
+  
+bal = list(discord.member.guild.members)
+all_bal = {i:100 for i in bal}
 
 @bot.command(name= "Coin-Flip") 
 async def Coin_Flip(ctx):
