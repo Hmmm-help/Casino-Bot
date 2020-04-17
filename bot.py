@@ -8,6 +8,7 @@ bot = commands.Bot(command_prefix='$')
 
 wins = 0
 losses = 0  
+bal = list(discord.member.guild.members)
 
 @bot.command(name= "Coin-Flip")
 async def Coin_Flip(ctx):
