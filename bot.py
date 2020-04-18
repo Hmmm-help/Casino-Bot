@@ -47,7 +47,7 @@ async def Coin_Flip(ctx):
         losses += 1
     
 @bot.command(name= "Emoji-Slot")
-async def emjoi_slot(ctx, users, user):
+async def emjoi_slot(ctx):
     import random
     options = ["🤡","😷","👽"]
     slot = [random.choice(options),random.choice(options),random.choice(options)]
