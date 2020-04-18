@@ -60,11 +60,11 @@ async def emjoi_slot(ctx, member: discord.member):
         global losses, wins
         losses += 1
         await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-        await update_bal(users, member, -5)
+
     if outcome == True:
         wins += 1
         await ctx.send("Look at you! Don't be shy- play some more!")
-        await update_bal(users, member, 5)
+
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
