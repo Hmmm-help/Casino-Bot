@@ -42,7 +42,7 @@ async def Coin_Flip(ctx):
         losses += 1
     
 @bot.command(name= "Emoji-Slot")
-async def emjoi_slot(ctx, member: discord.member):
+async def emjoi_slot(ctx, member: discord.Member):
     with open('users.json', 'r+') as f:
         data = json.load(f)
         if data[member] < 10:
