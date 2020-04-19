@@ -55,8 +55,6 @@ async def emjoi_slot(ctx, member: discord.member):
         await ctx.send(slot)
         outcome = all(x == slot[0] for x in slot)
         if outcome == False:
-            with open('users.json', 'r+') as f:
-            data = json.load(f)
             data[member] += -5
             global losses, wins
             losses += 1
@@ -64,8 +62,6 @@ async def emjoi_slot(ctx, member: discord.member):
             await ctx.send(f"The new balance for {member} is {data[member]}")
 
         if outcome == True:
-            with open('users.json', 'r+') as f:
-            data = json.load(f)
             data[member] += 5
             wins += 1
             await ctx.send("Look at you! Don't be shy- play some more!")
