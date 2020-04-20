@@ -15,7 +15,7 @@ losses = 0
 async def on_member_join(member):
     with open('users.json', 'r+') as f:
         data = json.load(f)
-        if member not in data.keys():
+        if not member in data.keys():
             data[member] = 100
             f.seek(0)
             json.dump(data, f)
