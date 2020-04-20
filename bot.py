@@ -42,30 +42,19 @@ async def Coin_Flip(ctx):
         losses += 1
     
 @bot.command(name= "Emoji-Slot")
-async def emjoi_slot(ctx, user:discord.Member):
-    with open('users.json', 'r+') as f:
-        data = json.load(f)
-        if data[user] < 10:
-            await ctx.send("Sorry, you do not have enough coins to play. Earn some more and come back again later!  ")
-        else:
-        import random
-        data[user] += -10
-        options = ["🤡","😷","👽"]
-        slot = [random.choice(options),random.choice(options),random.choice(options)]
-        await ctx.send(slot)
-        outcome = all(x == slot[0] for x in slot)
-        if outcome == False:
-            data[user] += -5
-            global losses, wins
-            losses += 1
-            await ctx.send("Sorry son, this ain't it- ya lost some cash.")
-            await ctx.send(f"The new balance for {user.name} is {data[user]}")
-
-        if outcome == True:
-            data[user] += 5
-            wins += 1
-            await ctx.send("Look at you! Don't be shy- play some more!")
-            await ctx.send(f"The new balance for {user.name} is {data[user]}")
+async def emjoi_slot(ctx):
+    import random
+    options = ["🤡","😷","👽"]
+    slot = [random.choice(options),random.choice(options),random.choice(options)]
+    await ctx.send(slot)
+    outcome = all(x == slot[0] for x in slot)
+    if outcome == False:
+        global losses, wins
+        losses += 1
+        await ctx.send("Sorry son, this ain't it- ya lost some cash.")
+    if outcome == True:
+        wins += 1
+        await ctx.send("Look at you! Don't be shy- play some more!")
 
 @bot.command(name = "Win:Loss")
 async def counter(ctx):
