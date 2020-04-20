@@ -11,7 +11,26 @@ bot = commands.Bot(command_prefix='$')
 wins = 0
 losses = 0  
 
+@bot.event
+async def on_member_join(member):
+    with open('users.json', 'r+') as f:
+        data = json.load(f)
+        if not member in data.keys():
+            data[member] = 100
+            f.seek(0)
+            json.dump(data, f)
 
+@bot.event
+async def on_message(message):
+    with open('users.json', 'r+') as f:
+        data = json.load(f)
+        if message.author.name in data.keys():
+            data[message.author.name] += 1
+        else:
+            data[message.author.name] = 100
+            f.seek(0)
+            json.dump(data, f)
+            
 @bot.command(name= "Coin-Flip") 
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
