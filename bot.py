@@ -43,7 +43,7 @@ async def counter(ctx):
     
 @bot.command(name = "guessing_game")
 async def GuessingGame(ctx,choice):
-    (number) = random.randint(1,10)
+    number = random.randint(1,10)
     if int(choice) == number:
         global losses, wins
         wins += 1
