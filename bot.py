@@ -11,14 +11,6 @@ bot = commands.Bot(command_prefix='$')
 wins = 0
 losses = 0  
 
-@bot.event
-async def on_member_join(member):
-    with open('users.json', 'r+') as f:
-        data = json.load(f)
-        if not member in data.keys():
-            data[member] = 100
-            f.seek(0)
-            json.dump(data, f)
 
 @bot.event
 async def on_message(message):
