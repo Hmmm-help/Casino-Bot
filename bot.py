@@ -30,7 +30,7 @@ async def on_message(message):
             data[message.author.name] = 100
             f.seek(0)
             json.dump(data, f)
-            
+
 @bot.command(name= "Coin-Flip") 
 async def Coin_Flip(ctx):
     choice = random.choice(["HEADS", "TAILS"])
@@ -61,7 +61,7 @@ async def counter(ctx):
     await ctx.send(f"Your ratio is now {wins}:{losses}.")
     
 @bot.command(name = "guessing_game")
-async def GuessingGame(ctx,choice):
+async def guessinggame(ctx,choice):
     number = random.randint(1,10)
     if int(choice) == number:
         global losses, wins
