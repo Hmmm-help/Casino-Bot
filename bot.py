@@ -67,7 +67,7 @@ async def guessinggame(ctx,choice):
         global losses, wins
         wins += 1
         await ctx.send("Hey goodjob!")
-    if int(choice) == number: 
+    if int(choice) != number: 
         losses += 1
         await ctx.send(f"Sucks to suck, the number was {number}")
 
